@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LightItem from './LightItem';
 import Config from './config';
+//import { Dimensions, StyleSheet, View} from 'react-native';
+//import { ColorWheel } from 'react-native-color-wheel';
 
 class LightsView extends Component {
     constructor(props) {
@@ -11,6 +13,7 @@ class LightsView extends Component {
         this.onToggleLight = this.onToggleLight.bind(this);
         this.fetchData = this.fetchData.bind(this);
         this.onBrightnessChanged = this.onBrightnessChanged.bind(this);
+        this.onColorChanged = this.onColorChanged.bind(this);
         setInterval(this.fetchData, 5000);
     }
 
@@ -19,7 +22,7 @@ class LightsView extends Component {
     }
 
     getUrlWithUsername() {
-        return Config.apiUrl + '/api/' + Config.username + '/lights';
+        return 'https://' + Config.apiUrl + '/api/' + Config.username + '/lights';
     }
 
     fetchData() {
@@ -72,6 +75,11 @@ class LightsView extends Component {
         this.changeState(id, bodyData);
     }
 
+    onColorChanged(id, colorValue) {
+        const bodyData = '{"hue":' + colorValue + '}';
+        this.changeState(id,bodyData);
+    }
+
     render() {
         if (this.requestFailed) {
             const url = this.getUrlWithUsername();
@@ -90,13 +98,17 @@ class LightsView extends Component {
         const lightItems = [];
         const toggleHandler = this.onToggleLight;
         const brightnessHandler = this.onBrightnessChanged;
+        const hueHandler = this.onColorChanged;
+        
+        
         Object.keys(data).forEach(function (id, index) {
             const item = data[id];
             const light = <LightItem key={id} id={id} name={data[id].name}
                 isOn={item.state.on} bri={item.state.bri}
                 reachable={item.state.reachable}
                 onToggleLight={toggleHandler}
-                onBrightnessChanged={brightnessHandler} />
+                onBrightnessChanged={brightnessHandler} 
+                onHueChanged={hueHandler}/>
             lightItems.push(light);
         });
 

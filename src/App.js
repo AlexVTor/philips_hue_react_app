@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import LightsView from './LightsView';
+import { ColorWheel } from 'react-native-color-wheel';
 
 function App() {
     return (

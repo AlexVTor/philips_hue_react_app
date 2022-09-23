@@ -1,4 +1,4 @@
 {
-   "apiUrl": "url_for_your_local_philips_hue_bridge",
-   "username":"username_generated_by_hue_api"
+   "apiUrl": "192.168.0.132",
+   "username":"8ugt0huFaqDOEosmhvhnRRdFiqLrwIEBhFExURPD"
 }

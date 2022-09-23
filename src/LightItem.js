@@ -32,6 +32,16 @@ const LightItem = (props) => (
                     onChange={(event, newValue) => props.onBrightnessChanged(props.id, newValue)}
                 />
             </div> : ''}
+        {props.reachable ?
+        <div className='rgb slider'>
+            <Slider
+                min={0}
+                max={100000}
+                step={1}
+                value={props.hue}
+                onChange={(event, newValue) => props.onHueChanged(props.id, newValue)}
+            />
+        </div> : ''}
     </div>
 );
 

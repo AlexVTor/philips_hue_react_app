@@ -9,6 +9,9 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-native": "^0.70.1",
+    "react-native-color-wheel": "^0.1.7",
+    "react-native-web": "^0.18.9",
     "react-scripts": "5.0.0"
   },
   "scripts": {
@@ -34,5 +37,9 @@
   },
   "resolutions": {
     "mini-css-extract-plugin": "2.4.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/preset-react": "^7.18.6"
   }
 }
